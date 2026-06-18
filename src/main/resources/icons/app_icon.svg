@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <!-- 主背景渐变 -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0e1a"/>
+      <stop offset="50%" style="stop-color:#1a1f35"/>
+      <stop offset="100%" style="stop-color:#0d1225"/>
+    </linearGradient>
+    
+    <!-- 外圈光晕渐变 -->
+    <radialGradient id="glowGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:0.15"/>
+      <stop offset="100%" style="stop-color:#00d4ff;stop-opacity:0"/>
+    </radialGradient>
+    
+    <!-- T字母渐变 -->
+    <linearGradient id="tGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00d4ff"/>
+      <stop offset="100%" style="stop-color:#0088cc"/>
+    </linearGradient>
+    
+    
+    <!-- 发光滤镜 -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- 圆角矩形背景 -->
+  <rect x="16" y="16" width="480" height="480" rx="96" ry="96" fill="url(#bgGrad)" stroke="#1a2a4a" stroke-width="2"/>
+  
+  <!-- 外圈光晕 -->
+  <rect x="16" y="16" width="480" height="480" rx="96" ry="96" fill="url(#glowGrad)"/>
+
+  <!-- T字母与>提示符的发光外层 -->
+  <g filter="url(#softGlow)" opacity="0.3">
+    <!-- > 符号发光 -->
+    <path d="M 133,195 L 183,240 L 133,285" fill="none" stroke="#00d4ff" stroke-width="38" stroke-linecap="round" stroke-linejoin="round" />
+    <!-- T 字母发光 -->
+    <path d="M 238,158 A 8,8 0 0 1 246,150 h 144 A 8,8 0 0 1 398,158 v 20 A 8,8 0 0 1 390,186 H 344 A 8,8 0 0 0 336,194 v 128 A 8,8 0 0 1 328,330 h -20 A 8,8 0 0 1 300,322 V 194 A 8,8 0 0 0 292,186 H 246 A 8,8 0 0 1 238,178 V 158 Z" fill="#00d4ff"/>
+  </g>
+
+  <!-- ===== 命令行提示符 > 与 字母 T 主体 ===== -->
+  <g filter="url(#glow)" opacity="0.95">
+    <!-- > 符号 -->
+    <path d="M 133,195 L 183,240 L 133,285" fill="none" stroke="url(#tGrad)" stroke-width="38" stroke-linecap="round" stroke-linejoin="round" />
+    
+    <!-- T 字母 (一体化圆滑 Path，消除渐变方向错位造成的割裂感，内置优雅的内凹角) -->
+    <path d="M 238,158 A 8,8 0 0 1 246,150 h 144 A 8,8 0 0 1 398,158 v 20 A 8,8 0 0 1 390,186 H 344 A 8,8 0 0 0 336,194 v 128 A 8,8 0 0 1 328,330 h -20 A 8,8 0 0 1 300,322 V 194 A 8,8 0 0 0 292,186 H 246 A 8,8 0 0 1 238,178 V 158 Z" fill="url(#tGrad)"/>
+  </g>
+  
+
+  
+</svg>
