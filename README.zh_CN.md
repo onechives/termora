@@ -5,6 +5,8 @@
 # Termora
 
 **Termora** 是一款跨平台终端模拟器和 SSH 客户端，支持 **Windows、macOS、Linux**。
+**原项目地址**：https://github.com/TermoraDev/termora
+- 感谢原作者 [hstyi](https://github.com/hstyi) 这么优秀的作品，我在基础上做了一些修改主要适合我自用习惯。
 
 <div align="center">
   <img src="docs/readme-zh_CN.png" alt="Readme" />
